@@ -23,8 +23,8 @@ export default function Index({ phonebooks, filters = {} }) {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 p-6">
-            <div className="max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-xl p-6">
+        <div className="bg-gray-900 p-6">
+            <div className="w-full bg-gray-600 rounded-2xl shadow-xl p-6">
 
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold text-white">
