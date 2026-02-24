@@ -1,11 +1,15 @@
 import { useForm } from '@inertiajs/react';
+import { useState, useEffect } from 'react';
 
 export default function Edit({ phonebook }) {
 
     const { data, setData, put, processing, errors } = useForm({
         name: phonebook.name || '',
         phone_number: phonebook.phone_number || '',
+        photo: null,
     });
+
+    const [preview, setPreview] = useState(phonebook.photo ? `/storage/${phonebook.photo}` : null);
 
     const submit = (e) => {
         e.preventDefault();
@@ -54,6 +58,38 @@ export default function Edit({ phonebook }) {
                             <p className="text-red-400 text-sm mt-1">
                                 {errors.phone_number}
                             </p>
+                        )}
+                    </div>
+
+                    {/* Photo */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Photo (optional)
+                        </label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={e => {
+                                const file = e.target.files[0];
+                                setData('photo', file);
+                                if (file) {
+                                    const url = URL.createObjectURL(file);
+                                    setPreview(url);
+                                } else {
+                                    setPreview(phonebook.photo ? `/storage/${phonebook.photo}` : null);
+                                }
+                            }}
+                            className="w-full"
+                        />
+                        {preview && (
+                            <img
+                                src={preview}
+                                alt="photo preview"
+                                className="mt-3 w-32 h-32 object-cover rounded-lg border border-gray-600"
+                            />
+                        )}
+                        {errors.photo && (
+                            <p className="text-red-400 text-sm mt-1">{errors.photo}</p>
                         )}
                     </div>
 

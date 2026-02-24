@@ -5,6 +5,7 @@ export default function Create() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         phone_number: '',
+        photo: null,
     });
 
     const submit = (e) => {
@@ -59,6 +60,21 @@ export default function Create() {
                             <p className="text-red-400 text-sm mt-1">
                                 {errors.phone_number}
                             </p>
+                        )}
+                    </div>
+                    {/* Photo */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Photo (optional)
+                        </label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={e => setData('photo', e.target.files[0])}
+                            className="w-full"
+                        />
+                        {errors.photo && (
+                            <p className="text-red-400 text-sm mt-1">{errors.photo}</p>
                         )}
                     </div>
                     {/* Button */}

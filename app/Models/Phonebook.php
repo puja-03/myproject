@@ -12,5 +12,6 @@ class Phonebook extends Model
         'id', 
         'name',
         'phone_number',
+        'photo',
     ];
 }

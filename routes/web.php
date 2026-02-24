@@ -27,11 +27,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('phonebooks', PhonebookController::class);
-    // Route::get('/phonebooks', [PhonebookController::class, 'index'])->name('phonebooks.index');
-    // Route::post('/phonebooks', [PhonebookController::class, 'store'])->name('phonebooks.store');
-    // Route::get('/phonebooks/create', [PhonebookController::class, 'create'])->name('phonebooks.create');
-    // Route::delete('/phonebooks/{phonebook}', [PhonebookController::class, 'destroy'])->name('phonebooks.destroy');
-    // Route::get('/phonebooks/{phonebook}/edit', [PhonebookController::class, 'edit'])->name('phonebooks.edit');
+    
 });
 
 

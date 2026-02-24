@@ -35,6 +35,7 @@ export default function Index({ phonebooks }) {
                             <thead>
                                 <tr className="border-b border-gray-700">
                                     <th className="py-3">#</th>
+                                    <th>Photo</th>
                                     <th>Name</th>
                                     <th>Phone Number</th>
                                     <th className="text-right">Actions</th>
@@ -44,6 +45,19 @@ export default function Index({ phonebooks }) {
                                 {phonebooks.map((item, index) => (
                                     <tr key={item.id} className="border-b border-gray-700 hover:bg-gray-700">
                                         <td className="py-3">{index + 1}</td>
+                                        <td className="py-3">
+                                            {item.photo ? (
+                                                <img
+                                                    src={`/storage/${item.photo}`}
+                                                    alt={item.name}
+                                                    className="w-12 h-12 rounded-full object-cover"
+                                                />
+                                            ) : (
+                                                <div className="w-12 h-12 rounded-full bg-gray-600 flex items-center justify-center text-sm text-white">
+                                                    {item.name ? item.name.charAt(0).toUpperCase() : '-'}
+                                                </div>
+                                            )}
+                                        </td>
                                         <td>{item.name}</td>
                                         <td>{item.phone_number}</td>
                                         <td className="text-right space-x-2">
