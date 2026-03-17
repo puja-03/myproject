@@ -25,7 +25,6 @@ export default function Index({ phonebooks, filters = {} }) {
     return (
         <div className="bg-gray-900 p-6">
             <div className="w-full bg-gray-600 rounded-2xl shadow-xl p-6">
-
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold text-white">
                         Phonebook List
@@ -133,7 +132,6 @@ export default function Index({ phonebooks, filters = {} }) {
                         )}
                     </div>
                 )}
-
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ export default function Create() {
         e.preventDefault();
 
         post(route('phonebooks.store'), {
-            onSuccess: () => reset()   // 👈 Form reset here
+            onSuccess: () => reset() 
         });
     };
 
